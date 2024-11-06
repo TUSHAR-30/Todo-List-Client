@@ -1,0 +1,11 @@
+.header{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header .profile{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}

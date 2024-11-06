@@ -1,0 +1,19 @@
+.productDiscovery-options{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 2rem;
+}
+.productDiscovery-options > div{
+    display: flex;
+    gap: 1.5rem;
+}
+.productDiscovery-options > div button{
+    border: 1px solid var(--border-color);
+    background-color: var(--buttonBackground-color);
+    padding: 0.5rem 1rem;
+}
+.productDiscovery-options .searchbar{
+    cursor: pointer;
+}

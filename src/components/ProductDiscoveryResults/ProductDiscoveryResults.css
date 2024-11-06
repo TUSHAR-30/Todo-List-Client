@@ -1,0 +1,10 @@
+.productdiscovery-results{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.productdiscovery-results .date-productdiscovery-results{
+    opacity: 0.8;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,20 @@
+.tasks{
+    margin-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.task{
+    padding: 0.5rem 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+.task .task-title{
+    flex-grow: 1;
+}
+.task .completed-task{
+    text-decoration: line-through;
+}
