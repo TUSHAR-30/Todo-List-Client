@@ -3,12 +3,18 @@
   --buttonBackground-color:transparent;
   --background-color:white;
   --color: black;
+  --modalOverlay-backgroundcolor:rgba(0, 0, 0, 0.5);
+  --modalContent-backgroundcolor:white;
+  --modalContent-boxShadow:rgba(0, 0, 0, 0.3)
 }
 /* :root{
   --border-color:white;
   --buttonBackground-color:transparent;
   --background-color:black;
   --color: white;
+  --modalOverlay-backgroundcolor:rgba(0, 0, 0, 0.5);
+  --modalContent-backgroundcolor:rgb(36, 34, 34);
+  --modalContent-boxShadow:rgba(0, 0, 0, 0.3)
 } */
 *{
   margin: 0;

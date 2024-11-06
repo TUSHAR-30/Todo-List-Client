@@ -1,0 +1,33 @@
+.taskdetailsform{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.taskdetails{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.taskdetails input{
+    height: 2.5rem;
+    
+}
+.taskdetails textarea,.taskdetails input{
+    border-radius: 5px;
+    border: 1px solid var(--border-color) ;
+    padding: 10px;
+}
+.actionbuttons{
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+.actionbuttons button{
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--buttonBackground-color);
+}
+.savebtn-not-allowed{
+    cursor: not-allowed;
+}

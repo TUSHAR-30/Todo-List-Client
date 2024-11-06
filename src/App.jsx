@@ -5,18 +5,19 @@ import ProductDiscoveryOptions from './components/ProductDiscoveryOptions/Produc
 import ProductDiscoveryResults from './components/ProductDiscoveryResults/ProductDiscoveryResults'
 import Tasks from './components/Tasks/Tasks'
 
+import { TasksProvider } from './TasksContext';
 import "./App.css"
 function App() {
 
   return (
-    <>
+    <TasksProvider>
       <Header />
       <Greetings />
       <ProductDiscoveryOptions />
       <ProductDiscoveryResults />
       <AddTask />
       <Tasks />
-    </>
+    </TasksProvider>
   )
 }
 
