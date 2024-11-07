@@ -1,41 +1,48 @@
-:root{
-  --border-color:black;
-  --buttonBackground-color:white;
-  --background-color:white;
+:root {
+  --border-color: black;
+  --buttonBackground-color: white;
+  --background-color: white;
   --color: black;
-  --modalOverlay-backgroundcolor:rgba(0, 0, 0, 0.5);
-  --modalContent-backgroundcolor:white;
-  --modalContent-boxShadow:rgba(0, 0, 0, 0.3);
-  --task-hover-backgroundColor:#eaeaea;
+  --modalOverlay-backgroundcolor: rgba(0, 0, 0, 0.5);
+  --modalContent-backgroundcolor: white;
+  --modalContent-boxShadow: rgba(0, 0, 0, 0.3);
+  --task-hover-backgroundColor: #eaeaea;
 }
-.darkmode{
-  --border-color:white;
-  --buttonBackground-color:black;
-  --background-color:black;
-  --color: white;
-  --modalOverlay-backgroundcolor:rgba(0, 0, 0, 0.5);
-  --modalContent-backgroundcolor:rgb(36, 34, 34);
-  --modalContent-boxShadow:rgba(0, 0, 0, 0.3);
-  --task-hover-backgroundColor:rgb(48, 47, 47);
 
+.darkmode {
+  --border-color: white;
+  --buttonBackground-color: black;
+  --background-color: black;
+  --color: white;
+  --modalOverlay-backgroundcolor: rgba(0, 0, 0, 0.5);
+  --modalContent-backgroundcolor: rgb(36, 34, 34);
+  --modalContent-boxShadow: rgba(0, 0, 0, 0.3);
+  --task-hover-backgroundColor: rgb(48, 47, 47);
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-body{
+
+body {
   background-color: var(--background-color);
   color: var(--color);
+  padding: 0px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
+
 #root {
-    max-width: 680px;
-    margin: 10px auto;
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-  }
-button{
-    cursor: pointer;
-  }
- 
+  width: 680px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+button {
+  cursor: pointer;
+}
