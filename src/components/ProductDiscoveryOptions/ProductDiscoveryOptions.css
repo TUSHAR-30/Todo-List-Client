@@ -12,6 +12,7 @@
 .productDiscovery-options > div button{
     border: 1px solid var(--border-color);
     background-color: var(--buttonBackground-color);
+    color: var(--color);
     padding: 0.5rem 1rem;
 }
 .productDiscovery-options .searchbar{

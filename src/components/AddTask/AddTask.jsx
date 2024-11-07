@@ -1,5 +1,5 @@
 import React, { useEffect, useState,useContext } from 'react'
-import Modal from './Modal';
+import Modal from '../../assets/Modal/Modal';
 import { IoAddOutline } from "react-icons/io5";
 import "./AddTask.css"
 import TasksContext from '../../TasksContext';

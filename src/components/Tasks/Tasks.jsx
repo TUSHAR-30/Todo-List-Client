@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import TasksContext from '../../TasksContext';
-import { MdDelete } from "react-icons/md";
-import { PiDotsThreeCircleVerticalFill } from "react-icons/pi";
+import { MdDeleteOutline } from "react-icons/md";
+import { GrEdit } from "react-icons/gr";
 import "./Tasks.css"
 function Tasks() {
     const { tasks, setTasks } = useContext(TasksContext);
@@ -23,8 +23,12 @@ function Tasks() {
                 <div key={task.id} className='task'>
                     <input type='checkbox' checked={task.isCompleted} onChange={()=>toggleTaskCompletion(task.id)}/>
                     <p className={`task-title ${task.isCompleted?"completed-task":""}`}>{task.title}</p>
-                    <MdDelete size={20} className='task-deleteicon' onClick={()=>deleteTask(task.id)} />
-                    <PiDotsThreeCircleVerticalFill className='task-moreInfoicon' size={25} />
+                    <div className='task-deleteicon'>
+                        <MdDeleteOutline size={20}  onClick={()=>deleteTask(task.id)} />
+                    </div>
+                    <div className='task-editicon'>
+                        <GrEdit  size={17} />
+                    </div>
                 </div>
                 )
             })}

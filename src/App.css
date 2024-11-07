@@ -17,6 +17,8 @@
     border-radius: 5px;
     border: 1px solid var(--border-color) ;
     padding: 10px;
+    background-color: inherit;
+    color: var(--color);
 }
 .actionbuttons{
     display: flex;
@@ -27,6 +29,7 @@
     padding: 0.5rem 1rem;
     border: 1px solid var(--border-color);
     background-color: var(--buttonBackground-color);
+    color: var(--color);
 }
 .savebtn-not-allowed{
     cursor: not-allowed;

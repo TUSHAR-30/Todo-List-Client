@@ -1,28 +1,33 @@
 :root{
   --border-color:black;
-  --buttonBackground-color:transparent;
+  --buttonBackground-color:white;
   --background-color:white;
   --color: black;
   --modalOverlay-backgroundcolor:rgba(0, 0, 0, 0.5);
   --modalContent-backgroundcolor:white;
-  --modalContent-boxShadow:rgba(0, 0, 0, 0.3)
+  --modalContent-boxShadow:rgba(0, 0, 0, 0.3);
+  --task-hover-backgroundColor:#eaeaea;
 }
-/* :root{
+.darkmode{
   --border-color:white;
-  --buttonBackground-color:transparent;
+  --buttonBackground-color:black;
   --background-color:black;
   --color: white;
   --modalOverlay-backgroundcolor:rgba(0, 0, 0, 0.5);
   --modalContent-backgroundcolor:rgb(36, 34, 34);
-  --modalContent-boxShadow:rgba(0, 0, 0, 0.3)
-} */
+  --modalContent-boxShadow:rgba(0, 0, 0, 0.3);
+  --task-hover-backgroundColor:rgb(48, 47, 47);
+
+}
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
   background-color: var(--background-color);
   color: var(--color);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #root {
     max-width: 680px;
