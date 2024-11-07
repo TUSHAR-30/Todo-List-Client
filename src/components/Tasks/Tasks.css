@@ -6,33 +6,3 @@
     height: 250px;
     overflow-y: auto;
 }
-.task{
-    padding: 0.2rem 0.8rem;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    border: 1px solid var(--border-color);
-    cursor: pointer;
-}
-.task .task-title{
-    flex-grow: 1;
-}
-.task .completed-task{
-    text-decoration: line-through;
-}
-.task:hover{
-    border: 1px solid green;
-    background-color: var(--task-hover-backgroundColor);
-}
-.task-deleteicon,.task-editicon{
-    height: 25px;
-    width: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.task-deleteicon:hover,.task-editicon:hover{
-    outline: 1px solid var(--border-color);
-    border-radius: 50%;
-    background-color: var(--background-color);
-}
