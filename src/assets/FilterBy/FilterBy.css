@@ -1,0 +1,50 @@
+.filterby-option{
+    position: relative;
+}
+.filterby-option > button{
+    border: 1px solid var(--border-color);
+    background-color: var(--buttonBackground-color);
+    color: var(--color);
+    padding: 0.5rem 1rem;
+}
+.filterby-modal{
+    position: absolute;
+    top: 2.2rem;
+    z-index: 1;
+    height: 160px;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(231, 224, 224);
+    padding: 10px;
+    border-radius: 5px;
+}
+.filterby-modal header{
+    display: flex;
+    gap: 5px;
+}
+.filterby-list{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.filterby-listitem{
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    border: 1px solid white;
+    padding: 3px;
+    background-color: rgb(238, 231, 231);
+}
+.filterby-listitem label{
+    flex-grow: 1;
+}
+.filterby-listitem input,label{
+    cursor: pointer;
+}
+.checkedfilter{
+    background-color: white;
+}
+.filterby-listitem:hover{
+    background-color: white;
+}

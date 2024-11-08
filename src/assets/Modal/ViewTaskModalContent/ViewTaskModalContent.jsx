@@ -28,6 +28,14 @@ function ViewTaskModalContent({ openedTask, setIsModalOpen }) {
                     />
                 </div>
                 <div className='taskdetails'>
+                    <label htmlFor="">Task Creation Date</label>
+                    <input
+                        type="date"
+                        disabled
+                        value={openedTask.taskCreationDate}
+                    />
+                </div>
+                <div className='taskdetails'>
                     <label htmlFor="">Due Date</label>
                     <input
                         type="date"

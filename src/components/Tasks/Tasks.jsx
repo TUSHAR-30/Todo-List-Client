@@ -5,7 +5,9 @@ import TasksContext from '../../TasksContext';
 
 function Tasks() {
     const { tasks, setTasks } = useContext(TasksContext);
+    const { selectedFilter, setSelectedFilter } = useContext(TasksContext)
     const [draggedTaskIndex, setDraggedTaskIndex] = useState(null);
+    let tempBooleanTaskCompleted=selectedFilter==="Completed"?true:false;
 
     // Handler to manage the drop and reorder tasks
     const handleDrop = (index) => {
@@ -23,14 +25,28 @@ function Tasks() {
         <div className='tasks'>
             {tasks.length !== 0 ? (
                 tasks.map((task, index) => (
-                    <Task
-                        key={task.id}
-                        task={task}
-                        index={index}
-                        onDragStart={() => setDraggedTaskIndex(index)}
-                        onDragOver={(e) => e.preventDefault()} // Prevent default to allow drop
-                        onDrop={() => handleDrop(index)}
-                    />
+                    selectedFilter == "All Tasks" ? (
+                        <Task
+                            key={task.id}
+                            task={task}
+                            index={index}
+                            onDragStart={() => setDraggedTaskIndex(index)}
+                            onDragOver={(e) => e.preventDefault()} // Prevent default to allow drop
+                            onDrop={() => handleDrop(index)}
+                        />
+                    ) : (
+                        task.isCompleted === tempBooleanTaskCompleted && (
+                            <Task
+                                key={task.id}
+                                task={task}
+                                index={index}
+                                onDragStart={() => setDraggedTaskIndex(index)}
+                                onDragOver={(e) => e.preventDefault()} // Prevent default to allow drop
+                                onDrop={() => handleDrop(index)}
+                            />
+                        )
+                    )
+
                 ))
             ) : (
                 <>

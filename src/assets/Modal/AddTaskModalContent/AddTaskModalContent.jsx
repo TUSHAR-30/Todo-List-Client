@@ -21,7 +21,7 @@ function AddTaskModalContent({taskDetails,setTaskDetails,setIsModalOpen}) {
     }
     function handleFormSubmit(e){
       e.preventDefault(); // Prevent default form submission
-      setTasks([...tasks, { id: tasks.length + 1, title: taskDetails.title, description: taskDetails.description , isCompleted: false }]);
+      setTasks([...tasks, { id: tasks.length + 1, title: taskDetails.title, description: taskDetails.description , isCompleted: false , taskCreationDate :today ,dueDate:taskDetails.dueDate}]);
       setTaskDetails({ title: "", description: "", dueDate: "" });
       setIsModalOpen(false)
     }
