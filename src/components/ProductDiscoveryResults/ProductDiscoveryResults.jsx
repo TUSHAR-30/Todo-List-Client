@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
+import { convertDateFormat } from "../../utils.js"
 import "./ProductDiscoveryResults.css"
 import TasksContext from '../../TasksContext'
 function ProductDiscoveryResults() {
-  const { selectedFilter,setSelectedFilter }=useContext(TasksContext)
+  const { selectedFilter, setSelectedFilter, filterStartDate, filterEndDate } = useContext(TasksContext)
   return (
     <div className='productdiscovery-results'>
-      <div className='main-productdiscovery-results'>     
-      <h2>{selectedFilter}</h2>
+      <div className='main-productdiscovery-results'>
+        <h2>{selectedFilter}</h2>
       </div>
       <div className='date-productdiscovery-results'>
-        03 July 2023 - 06 September 2024
+        {filterStartDate ? `${convertDateFormat(filterStartDate)} - ` : filterStartDate}
+        {filterEndDate ? convertDateFormat(filterEndDate) : filterEndDate}
       </div>
     </div>
   )

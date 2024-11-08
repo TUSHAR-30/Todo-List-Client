@@ -12,7 +12,7 @@ export function TasksProvider({ children }) {
             title: 'Jogging',
             isCompleted: false,
             description: "This is Jogging",
-            dueDate: "2024-11-28",
+            dueDate: "2024-11-28",  //YYYY-MM-DD
             taskCreationDate:"2024-02-20",
         },
         { 
@@ -41,14 +41,17 @@ export function TasksProvider({ children }) {
         },
     ]);
 
-    const [selectedFilter, setSelectedFilter] = useState("All Tasks")
+    const [selectedFilter, setSelectedFilter] = useState("All Tasks");
+    const [filterStartDate,setFilterStartDate]=useState("")
+    const [filterEndDate,setFilterEndDate]=useState("")
+
 
     useEffect(()=>{
         console.log(tasks)
     },[tasks])
 
     return (
-        <TasksContext.Provider value={{ tasks, setTasks, selectedFilter, setSelectedFilter }}>
+        <TasksContext.Provider value={{ tasks, setTasks, selectedFilter, filterStartDate , filterEndDate ,setSelectedFilter,setFilterStartDate,setFilterEndDate }}>
             {children}
         </TasksContext.Provider>
     );
