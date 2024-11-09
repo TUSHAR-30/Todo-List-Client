@@ -1,52 +1,37 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Task from './Task';
 import './Tasks.css';
 import TasksContext from '../../TasksContext';
+import { filterTasksByDateRange } from '../../utils';
+
 
 function Tasks() {
-    const { tasks, setTasks } = useContext(TasksContext);
+    const { tasks, setTasks , filterStartDate , filterEndDate } = useContext(TasksContext);
     const { selectedFilter, setSelectedFilter } = useContext(TasksContext)
+    const [tasksToBeShown, setTasksToBeShown] = useState(tasks);
     const [draggedTaskIndex, setDraggedTaskIndex] = useState(null);
-    let tempBooleanTaskCompleted=selectedFilter==="Completed"?true:false;
 
-    // Handler to manage the drop and reorder tasks
-    const handleDrop = (index) => {
-        if (draggedTaskIndex === null) return;
+    useEffect(() => {
+        let temp;
+        temp=filterTasksByDateRange(tasks,filterStartDate,filterEndDate);
+        let tempBooleanTaskCompleted = selectedFilter === "Completed" ? true : false;
+        temp=selectedFilter == "All Tasks"?temp:(temp.filter((task) => task.isCompleted == tempBooleanTaskCompleted))
 
-        const updatedTasks = [...tasks];
-        const [movedTask] = updatedTasks.splice(draggedTaskIndex, 1);
-        updatedTasks.splice(index, 0, movedTask);
+        setTasksToBeShown(temp)
+        
+    }, [selectedFilter, tasks ,filterStartDate , filterEndDate])
 
-        setTasks(updatedTasks);
-        setDraggedTaskIndex(null); // Reset the dragged task index after drop
-    };
 
     return (
         <div className='tasks'>
             {tasks.length !== 0 ? (
-                tasks.map((task, index) => (
-                    selectedFilter == "All Tasks" ? (
-                        <Task
-                            key={task.id}
-                            task={task}
-                            index={index}
-                            onDragStart={() => setDraggedTaskIndex(index)}
-                            onDragOver={(e) => e.preventDefault()} // Prevent default to allow drop
-                            onDrop={() => handleDrop(index)}
-                        />
-                    ) : (
-                        task.isCompleted === tempBooleanTaskCompleted && (
-                            <Task
-                                key={task.id}
-                                task={task}
-                                index={index}
-                                onDragStart={() => setDraggedTaskIndex(index)}
-                                onDragOver={(e) => e.preventDefault()} // Prevent default to allow drop
-                                onDrop={() => handleDrop(index)}
-                            />
-                        )
-                    )
-
+                tasksToBeShown.map((task) => (
+                    <Task
+                        key={task.id}
+                        task={task}
+                        draggedTaskIndex={draggedTaskIndex}
+                        setDraggedTaskIndex={setDraggedTaskIndex}
+                    />
                 ))
             ) : (
                 <>

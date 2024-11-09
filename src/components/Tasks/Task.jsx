@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TasksContext from '../../TasksContext';
 import { MdDeleteOutline } from 'react-icons/md';
 import { GrEdit } from 'react-icons/gr';
@@ -7,8 +7,8 @@ import Modal from '../../assets/Modal/ModalOverlay/Modal';
 import EditTaskModalContent from '../../assets/Modal/EditTaskModalContent/EditTaskModalContent';
 import ViewTaskModalContent from '../../assets/Modal/ViewTaskModalContent/ViewTaskModalContent';
 
-function Task({ task, index, onDragStart, onDragOver, onDrop }) {
-    const { setTasks } = useContext(TasksContext);
+function Task({ task , draggedTaskIndex , setDraggedTaskIndex }) {
+    const { tasks,setTasks } = useContext(TasksContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [openedTask, setOpenedTask] = useState({});
     const [openedTaskOperation, setOpenedTaskOperation] = useState('');
@@ -33,14 +33,32 @@ function Task({ task, index, onDragStart, onDragOver, onDrop }) {
         setOpenedTaskOperation(operation);
     }
 
+    function handleDragStart(taskId){
+        const index = tasks.findIndex(item => item.id == taskId);
+        setDraggedTaskIndex(index)
+    }
+
+    // Handler to manage the drop and reorder tasks
+    function handleDrop(taskId){
+        if (draggedTaskIndex === null) return;
+        
+        const index = tasks.findIndex(item => item.id == taskId);
+        const updatedTasks = [...tasks];
+        const [movedTask] = updatedTasks.splice(draggedTaskIndex, 1);
+        updatedTasks.splice(index, 0, movedTask);
+
+        setTasks(updatedTasks);
+        setDraggedTaskIndex(null); // Reset the dragged task index after drop
+    }  
+
     return (
         <>
             <div
                 className='task'
                 draggable
-                onDragStart={() => onDragStart(index)}
-                onDragOver={onDragOver}
-                onDrop={() => onDrop(index)}
+                onDragStart={() => handleDragStart(task.id)}
+                onDragOver={(e) => e.preventDefault()} // Prevent default to allow drop
+                onDrop={() => handleDrop(task.id)}
                 onClick={(e) => openModal(e, task, 'view')}
             >
                 <div onClick={(e) => e.stopPropagation()}>

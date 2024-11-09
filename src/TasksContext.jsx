@@ -1,5 +1,5 @@
 // TasksContext.js
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext , useEffect, useState } from 'react';
 
 // Create the context
 const TasksContext = createContext();
@@ -44,11 +44,6 @@ export function TasksProvider({ children }) {
     const [selectedFilter, setSelectedFilter] = useState("All Tasks");
     const [filterStartDate,setFilterStartDate]=useState("")
     const [filterEndDate,setFilterEndDate]=useState("")
-
-
-    useEffect(()=>{
-        console.log(tasks)
-    },[tasks])
 
     return (
         <TasksContext.Provider value={{ tasks, setTasks, selectedFilter, filterStartDate , filterEndDate ,setSelectedFilter,setFilterStartDate,setFilterEndDate }}>
