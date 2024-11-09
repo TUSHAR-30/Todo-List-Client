@@ -7,7 +7,6 @@ import "./FilterContainer.css";
 function FilterContainer() {
     const { selectedFilter, setSelectedFilter } = useContext(TasksContext)
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [dateRange, setDateRange] = useState([null, null]);
  
     const modalRef = useRef(null);  // Create a ref for the modal
     const buttonRef = useRef(null);  // Create a ref for the button
@@ -48,11 +47,11 @@ function FilterContainer() {
     }, [selectedFilter])
 
     return (
-        <div className='filterby-option'>
+        <div className='filterby-container'>
             <button onClick={toggleModalVisibility} ref={buttonRef} >Filter by </button>
             {isModalOpen && (
                 <div className='filterby-modal' ref={modalRef} >
-                   <FilterHeader dateRange={dateRange} setDateRange={setDateRange}/>
+                   <FilterHeader />
                    <FilterList selectedFilter={selectedFilter} handleFilterChange={handleFilterChange}/>
                 </div>
             )}

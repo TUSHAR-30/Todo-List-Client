@@ -13,6 +13,7 @@ export default function getValidDateFormat(startDate, endDate) {
     }
     computedStartDate=computedDate(startDate),
     computedEndDate=computedDate(endDate)
+    if(new Date(String(computedStartDate)) > new Date(String(computedEndDate))) return [computedEndDate,computedStartDate]
     return [computedStartDate,computedEndDate]
 }
 
@@ -59,4 +60,17 @@ export function filterTasksByDateRange(tasks, filterStartDate, filterEndDate) {
         const creationDate = new Date(task.taskCreationDate);
         return creationDate >= startDate && creationDate <= endDate;
     });
+}
+
+
+export function sortedTasks_CreationDate_Descending(tasks){
+    if(tasks.length == 0) return [];
+    let result=tasks.sort((a, b) => new Date(b.taskCreationDate) - new Date(a.taskCreationDate));
+    return result
+}
+
+export function sortedTasks_Alphabatically_Ascending(tasks){
+    if(tasks.length == 0) return [];
+    let result=tasks.sort((a, b) => a.title.localeCompare(b.title));
+    return result;
 }

@@ -1,17 +1,41 @@
 import React, { useContext } from 'react'
 import { convertDateFormat } from "../../utils.js"
-import "./ProductDiscoveryResults.css"
+import { MdOutlineCancel } from "react-icons/md";
 import TasksContext from '../../TasksContext'
+import "./ProductDiscoveryResults.css"
 function ProductDiscoveryResults() {
-  const { selectedFilter, setSelectedFilter, filterStartDate, filterEndDate } = useContext(TasksContext)
+
+  const { selectedFilter , filterStartDate, filterEndDate, selectedSort, setSelectedSort , setFilterStartDate ,setFilterEndDate , setDateRange } = useContext(TasksContext)
   return (
     <div className='productdiscovery-results'>
-      <div className='main-productdiscovery-results'>
+      <div className='primary-productdiscovery-results'>
         <h2>{selectedFilter}</h2>
       </div>
-      <div className='date-productdiscovery-results'>
-        {filterStartDate ? `${convertDateFormat(filterStartDate)} - ` : filterStartDate}
-        {filterEndDate ? convertDateFormat(filterEndDate) : filterEndDate}
+      <div className='secondary-productdiscovery-results'>
+        {
+          filterStartDate && (
+            <div>
+              <span>
+                {`${convertDateFormat(filterStartDate)} - `}
+                {convertDateFormat(filterEndDate)}
+              </span>
+              <MdOutlineCancel size={16} className='cancelResult' onClick={()=>{ setDateRange([null,null]);   setFilterStartDate("") ; setFilterEndDate("")  }}/>
+            </div>
+          )
+        }
+        {
+          selectedSort && (
+            <div>
+              <span>{selectedSort}</span>
+              <MdOutlineCancel size={16} className='cancelResult' onClick={()=>setSelectedSort("")}/>
+            </div>
+          )
+        }
+        {
+          !filterStartDate && !selectedSort && (
+            <h4 style={{opacity:'0.6'}}>You can also apply filtering and sorting on tasks...</h4>
+          )
+        }
       </div>
     </div>
   )

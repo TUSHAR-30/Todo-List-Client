@@ -6,6 +6,7 @@
   --modalOverlay-backgroundcolor: rgba(0, 0, 0, 0.5);
   --modalContent-backgroundcolor: white;
   --modalContent-boxShadow: rgba(0, 0, 0, 0.3);
+  --filterModal-backgroundColor:rgb(231, 224, 224);
   --task-hover-backgroundColor: #eaeaea;
 }
 
@@ -17,6 +18,7 @@
   --modalOverlay-backgroundcolor: rgba(0, 0, 0, 0.5);
   --modalContent-backgroundcolor: rgb(36, 34, 34);
   --modalContent-boxShadow: rgba(0, 0, 0, 0.3);
+  --filterModal-backgroundColor:rgb(87, 84, 84);
   --task-hover-backgroundColor: rgb(48, 47, 47);
 }
 
@@ -45,4 +47,14 @@ body {
 
 button {
   cursor: pointer;
+}
+.react-datepicker__input-container input {
+  background-color: var(--background-color); /* Your desired background color */
+  border: 1px solid var(--border-color); /* Optional: change border */
+  padding: 3px;
+  color: var(--color);
+}
+
+.react-datepicker__close-icon {
+  right: -28px; /* Increase this value to move it further to the right */
 }

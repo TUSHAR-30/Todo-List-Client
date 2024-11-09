@@ -2,24 +2,28 @@ import React, { useContext, useState, useEffect } from 'react';
 import Task from './Task';
 import './Tasks.css';
 import TasksContext from '../../TasksContext';
-import { filterTasksByDateRange } from '../../utils';
+import { filterTasksByDateRange, sortedTasks_Alphabatically_Ascending, sortedTasks_CreationDate_Descending } from '../../utils';
 
 
 function Tasks() {
-    const { tasks, setTasks , filterStartDate , filterEndDate } = useContext(TasksContext);
-    const { selectedFilter, setSelectedFilter } = useContext(TasksContext)
+    const { tasks , selectedFilter , filterStartDate , filterEndDate , selectedSort } = useContext(TasksContext);
     const [tasksToBeShown, setTasksToBeShown] = useState(tasks);
     const [draggedTaskIndex, setDraggedTaskIndex] = useState(null);
 
     useEffect(() => {
-        let temp;
-        temp=filterTasksByDateRange(tasks,filterStartDate,filterEndDate);
+        let temp=[...tasks]
+        temp=filterTasksByDateRange(temp,filterStartDate,filterEndDate);
         let tempBooleanTaskCompleted = selectedFilter === "Completed" ? true : false;
         temp=selectedFilter == "All Tasks"?temp:(temp.filter((task) => task.isCompleted == tempBooleanTaskCompleted))
 
+        if(selectedSort){
+            temp=selectedSort=="Sort by Alphabatically"
+            ?sortedTasks_Alphabatically_Ascending(temp)
+            :sortedTasks_CreationDate_Descending(temp)
+        }
         setTasksToBeShown(temp)
         
-    }, [selectedFilter, tasks ,filterStartDate , filterEndDate])
+    }, [selectedFilter, tasks ,filterStartDate , filterEndDate ,selectedSort])
 
 
     return (

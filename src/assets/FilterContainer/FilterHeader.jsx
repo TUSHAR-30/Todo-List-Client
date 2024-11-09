@@ -4,8 +4,8 @@ import TasksContext from '../../TasksContext';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function FilterHeader({dateRange,setDateRange}) {
-    const {setFilterStartDate,setFilterEndDate}=useContext(TasksContext)
+function FilterHeader() {
+    const {setFilterStartDate,setFilterEndDate,dateRange,setDateRange}=useContext(TasksContext)
     const [startDate, endDate] = dateRange;
 
     useEffect(()=>{
