@@ -2,13 +2,6 @@
     margin-top: 1rem;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    gap: 2rem;
+    gap: 1rem;
 }
-.productDiscovery-options > div{
-    display: flex;
-    gap: 1.5rem;
-}
-.productDiscovery-options .searchbar{
-    cursor: pointer;
-}
+

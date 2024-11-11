@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import TasksContext from '../../../TasksContext';
+import TasksContext from '../../../Context/TasksContext';
 
 
 function EditTaskModalContent({ openedTask, setOpenedTask, setIsModalOpen }) {

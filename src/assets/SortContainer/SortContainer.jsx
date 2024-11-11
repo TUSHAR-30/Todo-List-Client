@@ -1,6 +1,6 @@
 import React, { useRef, useState , useEffect, useContext } from 'react'
 import "./SortContainer.css"
-import TasksContext from '../../TasksContext';
+import TasksContext from '../../Context/TasksContext';
 function SortContainer() {
   const { selectedSort , setSelectedSort } = useContext(TasksContext);
   const [isModalOpen, setIsModalOpen] = useState(false);

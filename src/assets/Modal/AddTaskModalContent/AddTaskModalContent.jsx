@@ -1,5 +1,5 @@
 import React, { useEffect, useState,useContext } from 'react'
-import TasksContext from '../../../TasksContext';
+import TasksContext from '../../../Context/TasksContext';
 import { calculateNewTaskId } from '../../../utils';
 
 function AddTaskModalContent({taskDetails,setTaskDetails,setIsModalOpen}) {

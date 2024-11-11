@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Task from './Task';
 import './Tasks.css';
-import TasksContext from '../../TasksContext';
+import TasksContext from '../../Context/TasksContext';
 import { filterTasksByDateRange, sortedTasks_Alphabatically_Ascending, sortedTasks_CreationDate_Descending } from '../../utils';
 
 

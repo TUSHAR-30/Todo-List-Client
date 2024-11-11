@@ -1,6 +1,6 @@
 import React,{useContext, useEffect, useState} from 'react'
 import getValidDateFormat from "../../utils.js"
-import TasksContext from '../../TasksContext';
+import TasksContext from '../../Context/TasksContext.jsx';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 

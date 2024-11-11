@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { convertDateFormat } from "../../utils.js"
 import { MdOutlineCancel } from "react-icons/md";
-import TasksContext from '../../TasksContext'
+import TasksContext from '../../Context/TasksContext.jsx'
 import "./ProductDiscoveryResults.css"
 function ProductDiscoveryResults() {
 

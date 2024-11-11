@@ -51,7 +51,7 @@ export function calculateNewTaskId(tasks) {
     return maxId + 1; // Return new ID, incremented by 1
 }
 
-
+//It is used in Tasks.jsx file
 export function filterTasksByDateRange(tasks, filterStartDate, filterEndDate) {
     if(filterStartDate=="")return tasks
     const startDate = new Date(filterStartDate);
@@ -62,13 +62,14 @@ export function filterTasksByDateRange(tasks, filterStartDate, filterEndDate) {
     });
 }
 
-
+//It is used in Tasks.jsx file
 export function sortedTasks_CreationDate_Descending(tasks){
     if(tasks.length == 0) return [];
     let result=tasks.sort((a, b) => new Date(b.taskCreationDate) - new Date(a.taskCreationDate));
     return result
 }
 
+//It is used in Tasks.jsx file
 export function sortedTasks_Alphabatically_Ascending(tasks){
     if(tasks.length == 0) return [];
     let result=tasks.sort((a, b) => a.title.localeCompare(b.title));

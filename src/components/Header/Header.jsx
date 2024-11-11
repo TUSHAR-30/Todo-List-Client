@@ -2,10 +2,14 @@ import React, { useState } from 'react'
 import { FaUserCircle } from "react-icons/fa";
 import { PiMoonStarsFill } from "react-icons/pi";
 import { PiSunFill } from "react-icons/pi";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoSearchSharp } from "react-icons/io5";
+
 import './Header.css'
+import Searchbar from '../Searchbar/Searchbar';
 function Header() {
-  const [isLightMode,setisLightMode]=useState(true)
-  function handleMode(){
+  const [isLightMode, setisLightMode] = useState(true)
+  function handleMode() {
     setisLightMode(!isLightMode);
     document.documentElement.classList.toggle('darkmode')
   }
@@ -14,9 +18,14 @@ function Header() {
       <h1 className='app-name'>Todo List</h1>
       <div className='header-actions'>
         <div className='mode' onClick={handleMode}>
-          { isLightMode?<PiMoonStarsFill size={30} />:<PiSunFill size={30}/>}
+          {isLightMode ? <PiMoonStarsFill size={23} /> : <PiSunFill size={23} />}
         </div>
-        <div className='profile'><FaUserCircle size={30} /></div>
+        <div className='profile'>
+          <FaUserCircle size={23} />
+          <span>Login</span>
+          <IoIosArrowDown />
+        </div>
+        <Searchbar />
       </div>
     </header>
   )

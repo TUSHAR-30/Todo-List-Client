@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import TasksContext from '../../TasksContext';
+import TasksContext from '../../Context/TasksContext';
 import { MdDeleteOutline } from 'react-icons/md';
 import { GrEdit } from 'react-icons/gr';
 import './Task.css';

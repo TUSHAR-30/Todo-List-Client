@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import TasksContext from '../../TasksContext';
+import TasksContext from '../../Context/TasksContext';
 import FilterHeader from './FilterHeader';
 import FilterList from './FilterList';
 import "./FilterContainer.css";

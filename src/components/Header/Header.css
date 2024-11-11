@@ -1,15 +1,38 @@
 .header{
-    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    position: relative;
+    justify-content: center;
 }
+
 .header .header-actions{
     display: flex;
     gap: 0.6rem;
+    align-items: center;
     position: absolute;
     right: 0;
 }
 .header .header-actions > *{
     cursor: pointer;
+    padding: 5px;
+    border: 1px solid ;
+    border-radius: 50%;
+}
+
+.header .header-actions .profile{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+@media screen and (max-width:625px) {
+    .header{
+        justify-content: space-between;
+    }
+    .header h1{
+        transform-origin: left;
+        transform: scale(0.7);
+    }
 }

@@ -8,6 +8,8 @@
   --modalContent-boxShadow: rgba(0, 0, 0, 0.3);
   --filterModal-backgroundColor:rgb(231, 224, 224);
   --task-hover-backgroundColor: #eaeaea;
+  --searchicon-color:white;
+  --searchbar-backgroundcolor:black;
 }
 
 .darkmode {
@@ -20,6 +22,8 @@
   --modalContent-boxShadow: rgba(0, 0, 0, 0.3);
   --filterModal-backgroundColor:rgb(87, 84, 84);
   --task-hover-backgroundColor: rgb(48, 47, 47);
+  --searchicon-color:black;
+  --searchbar-backgroundcolor:white;
 }
 
 * {
@@ -41,10 +45,11 @@ body {
 
 #root {
   width: 680px;
-  padding: 1rem;
+  position: relative;
   border: 1px solid var(--border-color);
+  overflow: hidden;
+  padding: 1rem;
 }
-
 button {
   cursor: pointer;
 }

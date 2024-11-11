@@ -5,18 +5,23 @@ import ProductDiscoveryOptions from './components/ProductDiscoveryOptions/Produc
 import ProductDiscoveryResults from './components/ProductDiscoveryResults/ProductDiscoveryResults'
 import Tasks from './components/Tasks/Tasks'
 
-import { TasksProvider } from './TasksContext';
+import { TasksProvider } from './Context/TasksContext';
 import "./App.css"
+import SearchContainer from './SearchContainer/SearchContainer'
+import { SearchProvider } from './Context/SearchContext'
 function App() {
 
   return (
     <TasksProvider>
-      <Header />
-      <Greetings />
-      <ProductDiscoveryOptions />
-      <ProductDiscoveryResults />
-      <AddTask />
-      <Tasks />
+      <SearchProvider>
+        <SearchContainer />
+        <Header />
+        <Greetings />
+        <ProductDiscoveryOptions />
+        <ProductDiscoveryResults />
+        <AddTask />
+        <Tasks />
+      </SearchProvider>
     </TasksProvider>
   )
 }
