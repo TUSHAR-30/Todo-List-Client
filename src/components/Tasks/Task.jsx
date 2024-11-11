@@ -7,7 +7,7 @@ import Modal from '../../assets/Modal/ModalOverlay/Modal';
 import EditTaskModalContent from '../../assets/Modal/EditTaskModalContent/EditTaskModalContent';
 import ViewTaskModalContent from '../../assets/Modal/ViewTaskModalContent/ViewTaskModalContent';
 
-function Task({ task , draggedTaskIndex , setDraggedTaskIndex }) {
+function Task({ task , draggedTaskIndex, setDraggedTaskIndex, isDraggable}) {
     const { tasks,setTasks } = useContext(TasksContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [openedTask, setOpenedTask] = useState({});
@@ -56,9 +56,9 @@ function Task({ task , draggedTaskIndex , setDraggedTaskIndex }) {
             <div
                 className='task'
                 draggable
-                onDragStart={() => handleDragStart(task.id)}
+                onDragStart={() => isDraggable && handleDragStart(task.id)}
                 onDragOver={(e) => e.preventDefault()} // Prevent default to allow drop
-                onDrop={() => handleDrop(task.id)}
+                onDrop={() => isDraggable && handleDrop(task.id)}
                 onClick={(e) => openModal(e, task, 'view')}
             >
                 <div onClick={(e) => e.stopPropagation()}>

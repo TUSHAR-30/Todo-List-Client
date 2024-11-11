@@ -35,6 +35,7 @@ function Tasks() {
                         task={task}
                         draggedTaskIndex={draggedTaskIndex}
                         setDraggedTaskIndex={setDraggedTaskIndex}
+                        isDraggable={true}
                     />
                 ))
             ) : (

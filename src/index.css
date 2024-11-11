@@ -9,7 +9,7 @@
   --filterModal-backgroundColor:rgb(231, 224, 224);
   --task-hover-backgroundColor: #eaeaea;
   --searchicon-color:white;
-  --searchbar-backgroundcolor:black;
+  /* --searchbar-backgroundcolor:black; */
 }
 
 .darkmode {
@@ -23,7 +23,7 @@
   --filterModal-backgroundColor:rgb(87, 84, 84);
   --task-hover-backgroundColor: rgb(48, 47, 47);
   --searchicon-color:black;
-  --searchbar-backgroundcolor:white;
+  /* --searchbar-backgroundcolor:white; */
 }
 
 * {

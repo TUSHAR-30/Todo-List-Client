@@ -9,8 +9,9 @@
   align-items: center;
   border-bottom-left-radius: 50%;
   transform-origin: top right;
-  transform: scale(0.088,0.1);
-  background-color: rgb(232, 230, 230);
+  transform: scale(0,0);
+  /* background-color: rgb(232, 230, 230); */
+  background-color: var(--filterModal-backgroundColor);
   transition: transform 500ms;
   z-index: 1  ;
 }
@@ -22,7 +23,7 @@
     height: 60px;
     width: 60px;
     border-bottom-left-radius: 50%;
-    background-color: rgb(196, 196, 193);
+    background-color: var(--modalContent-backgroundcolor);
     opacity: 0;
     transition: opacity 500ms;
 }
@@ -65,26 +66,43 @@
 
 .searchsystem{
     transform: scale(0);
+    height: 50%;
+    width: 100%;
+    padding: 20px;
+}
+.search-heading,.search-note,.search-summary{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.search-summary{
+    margin-top: 15px;
 }
 .searchsystem .searchplace{
     display: flex;
-    gap: 30px;
+    gap: 10px;
     align-items: center;
     border-radius: 20px;
     height: 30px;
-    background-color: white;
+    background-color: var(--modalContent-backgroundcolor);
     padding: 20px;
+    max-width: 290px;
+    margin: auto;
 }
 .searchsystem .searchplace input{
    border: none;
    outline: none;
    font-size: 1rem;
+   background-color: var(--modalContent-backgroundcolor);
+   color: var(--color);
 }
 .searchresults{
-    height: 200px;
-    margin-top: 40px;
-    background-color: white;
+    height: 300px;
+    background-color: var(--modalContent-backgroundcolor);
     border-radius: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    overflow: auto;
 }
 
 
