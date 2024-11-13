@@ -103,6 +103,9 @@
     margin: 20px auto;
     padding: 10px;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 

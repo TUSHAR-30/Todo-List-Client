@@ -19,12 +19,13 @@
     border-radius: 8px;
     max-width: 500px;
     width: 100%;
-    height: 541px;
+    max-height: 547px;
     overflow-y: auto;
     box-shadow: 0 5px 15px var(--modalContent-boxShadow);
     position: relative;
     transform: scale(0);
-    animation: modalanimation 0.2s linear forwards;
+    scrollbar-gutter: stable both-edges;
+    animation: modalanimation 0.3s linear forwards;
 }
 @keyframes modalanimation {
     to{

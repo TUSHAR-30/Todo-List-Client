@@ -4,7 +4,8 @@
     flex-direction: column;
 }
 .add-task > button{
-    background-color: var(--buttonBackground-color);
+    /* background-color: var(--buttonBackground-color); */
+    background-color: transparent;
     color: var(--color);
     border:none;
     border-top: 1px solid var(--border-color);

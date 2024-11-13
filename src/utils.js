@@ -17,9 +17,11 @@ export default function getValidDateFormat(startDate, endDate) {
     return [computedStartDate,computedEndDate]
 }
 
-function computedDate(incomingdate) {
-    // Parse the date string to create a Date object
-    const date = new Date(incomingdate);
+export function computedDate(incomingdate) {
+    let date;
+    if(!incomingdate){date=new Date()}
+    else{date = new Date(incomingdate);} 
+  
 
     // Extract the year, month, and day
     const year = date.getFullYear();

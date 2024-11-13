@@ -3,7 +3,8 @@
 }
 .sortby-container > button{
     border: 1px solid var(--border-color);
-    background-color: var(--buttonBackground-color);
+    /* background-color: var(--buttonBackground-color); */
+    background-color: transparent;
     color: var(--color);
     padding: 0.5rem 1rem;
 }
@@ -17,6 +18,16 @@
     background-color: var(--filterModal-backgroundColor);
     padding: 10px;
     border-radius: 5px;
+    animation: sortmodalopen 0.2s linear ;
+    transform-origin: left top;
+}
+@keyframes  sortmodalopen{
+    from{
+        transform: scale(0.3);
+    }
+    to{
+        transform: scale(1);
+    }
 }
 .sortby-list{
     margin-top: 20px;

@@ -1,6 +1,5 @@
 .header{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     position: relative;
     justify-content: center;
@@ -19,7 +18,14 @@
     border: 1px solid ;
     border-radius: 50%;
 }
-
+.mode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .header .header-actions .profile{
     display: flex;
     align-items: center;

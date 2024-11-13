@@ -6,11 +6,27 @@
     border: 1px solid var(--border-color);
     cursor: pointer;
 }
-.task .task-title{
-    flex-grow: 1;
+.task .task-title-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    /* flex-grow: 1;    If i use flex-grow instead of width than layout after tasktitlecontainer shifted when title is more than one line.  */
 }
-.task .completed-task{
-    text-decoration: line-through;
+.task .completed-text {
+    font-size: 0.7rem;
+    color: white;
+    background-color: rgb(19, 174, 19);
+    padding: 5px;
+    border-radius: 10px;
+}
+.task .task-title{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     flex-grow: 1;         
+    display: -webkit-box;          /* Enables a flexible box layout */
+    -webkit-box-orient: vertical;  /* Specifies the orientation of the box as vertical */
+     -webkit-line-clamp: 1;        /* Limits the text to 1 lines */
+      overflow: hidden;             /* Hides any text overflow */
 }
 .task:hover{
     border: 1px solid green;
@@ -22,6 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 .task-deleteicon:hover,.task-editicon:hover{
     outline: 1px solid var(--border-color);

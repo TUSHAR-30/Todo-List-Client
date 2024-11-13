@@ -9,7 +9,7 @@
   --filterModal-backgroundColor:rgb(231, 224, 224);
   --task-hover-backgroundColor: #eaeaea;
   --searchicon-color:white;
-  /* --searchbar-backgroundcolor:black; */
+  --scrollbar-boxShadow:inset 0 0 5px rgba(0,0,0,0.3);
 }
 
 .darkmode {
@@ -23,7 +23,7 @@
   --filterModal-backgroundColor:rgb(87, 84, 84);
   --task-hover-backgroundColor: rgb(48, 47, 47);
   --searchicon-color:black;
-  /* --searchbar-backgroundcolor:white; */
+  --scrollbar-boxShadow:inset 0 0 5px rgba(255,255,255,0.5);
 }
 
 * {
@@ -31,6 +31,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background: var(--filterModal-backgroundColor);
+  box-shadow: var(--scrollbar-boxShadow);
 }
 
 body {
@@ -41,6 +50,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  transition: background-color 0.2s;
 }
 
 #root {
@@ -52,6 +62,7 @@ body {
 }
 button {
   cursor: pointer;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .react-datepicker__input-container input {
   background-color: var(--background-color); /* Your desired background color */

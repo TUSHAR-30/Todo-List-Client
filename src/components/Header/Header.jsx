@@ -22,7 +22,7 @@ function Header() {
         </div>
         <div className='profile'>
           <FaUserCircle size={23} />
-          <span>Login</span>
+          <span className='login'>Login</span>
           <IoIosArrowDown />
         </div>
         <Searchbar />

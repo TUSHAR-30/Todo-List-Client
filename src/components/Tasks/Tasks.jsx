@@ -42,6 +42,7 @@ function Tasks() {
                 <>
                     <div className='notasks-animation'>
                         <dotlottie-player src="animation.json" speed="1" autoplay></dotlottie-player>
+                        <div className='taskadding-request'><span className='openhands-emoji'>🤗</span> Add some tasks.</div>
                     </div>
                     <h3 style={{ textAlign: 'center' }}>No Tasks are present</h3>
                 </>
