@@ -1,9 +1,9 @@
 .notification-container {
     position: absolute;
     left: 50%;
-    z-index: 4;
+    z-index: 3;
     transform: translateX(-50%);
-    width: 300px;
+    width: max-content;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -12,10 +12,12 @@
 .notification-item {
     background-color: rgb(47, 228, 86);
     padding: 8px;
-    font-size: 0.9rem;
+    padding-left: 24px;
+    padding-right: 12px;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
     justify-content: center;
     color: white;
     position: relative;
@@ -24,6 +26,7 @@
     content: "";
     position: absolute;
     bottom: 0;
+    left: 0;
     height: 4px;
     width: 100%;
     background-color: var(--border-color);
@@ -31,14 +34,13 @@
     transform: scaleX(1);
     animation: notificationTimeline 4s linear forwards;
 }
+.notification-closeicon {
+    color: black;
+    cursor: pointer;
+}
 @keyframes notificationTimeline {
     to{
         transform: scaleX(0);
     }
 }
 
-.notification-closeicon {
-    color: black;
-    margin-left: 15px;
-    cursor: pointer;
-}

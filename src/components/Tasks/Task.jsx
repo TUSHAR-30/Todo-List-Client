@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import TasksContext from '../../Context/TasksContext';
 import { MdDeleteOutline } from 'react-icons/md';
 import { GrEdit } from 'react-icons/gr';
@@ -13,6 +13,11 @@ function Task({ task, draggedTaskIndex, setDraggedTaskIndex, isDraggable }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [openedTask, setOpenedTask] = useState({});
     const [openedTaskOperation, setOpenedTaskOperation] = useState('');
+    const taskRef=useRef();
+
+    function handleDeleteAnimation(){
+        taskRef.current.classList.add('deleted-task')
+    }
 
     function toggleTaskCompletion(taskId) {
         setTasks((prevTasks) =>
@@ -50,6 +55,7 @@ function Task({ task, draggedTaskIndex, setDraggedTaskIndex, isDraggable }) {
     return (
         <>
             <div
+                ref={taskRef}
                 className='task'
                 draggable
                 onDragStart={() => isDraggable && handleDragStart(task.id)}
@@ -102,6 +108,7 @@ function Task({ task, draggedTaskIndex, setDraggedTaskIndex, isDraggable }) {
                     <DeleteTaskModalContent
                         openedTask={openedTask}
                         setIsModalOpen={setIsModalOpen}
+                        handleDeleteAnimation={handleDeleteAnimation}
                     />
                 )}
             </Modal>

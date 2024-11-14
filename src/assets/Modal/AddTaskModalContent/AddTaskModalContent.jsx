@@ -29,7 +29,7 @@ function AddTaskModalContent({taskDetails,setTaskDetails,setIsModalOpen}) {
         type:"add",
         message:"Task Added Successfully"
       })
-      setTasks([...tasks, { id: newTaskId, title: taskDetails.title, description: taskDetails.description , isCompleted: false , taskCreationDate :today ,dueDate:taskDetails.dueDate}]);
+      setTasks([ { id: newTaskId, title: taskDetails.title, description: taskDetails.description , isCompleted: false , taskCreationDate :today ,dueDate:taskDetails.dueDate} , ...tasks]);
       setTaskDetails({ title: "", description: "", dueDate: "" });
       setIsModalOpen(false)
     }

@@ -11,7 +11,7 @@ function useNotification() {
 
     function addNotification(notificationInformation) {
         const newNotificationId = calculateNewNotificationId(notifications);
-        setNotifications([{ id: newNotificationId ,type:notificationInformation.type , message: notificationInformation.message }, ...notifications ])
+        setNotifications((prevNotifications)=>[{ id: newNotificationId ,type:notificationInformation.type , message: notificationInformation.message },...prevNotifications])
         setTimeout(() => {
             setNotifications((prevNotifications) => prevNotifications.filter((noti) => noti.id !== newNotificationId));
         }, 4000);
