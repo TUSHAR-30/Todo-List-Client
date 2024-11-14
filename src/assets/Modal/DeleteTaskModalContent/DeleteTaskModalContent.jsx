@@ -1,11 +1,17 @@
 import React, { useContext, useState } from 'react'
 import "./DeleteTaskModalContent.css"
 import TasksContext from '../../../Context/TasksContext'
+import useNotification from '../../../Hooks/useNotification'
 
 function DeleteTaskModalContent({ openedTask, setIsModalOpen }) {
+    const [notifications,closeNotification,addNotification]=useNotification()
     const { setTasks } = useContext(TasksContext)
     function deleteTask(userChoice) {
         if (userChoice){
+            addNotification({
+                type:"delete",
+                message:"Task Deleted Successfully"
+            })
             return setTasks((prevTasks) => prevTasks.filter((task) => task.id !== openedTask.id));
         }
         setIsModalOpen(false)

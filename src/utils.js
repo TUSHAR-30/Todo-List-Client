@@ -53,6 +53,17 @@ export function calculateNewTaskId(tasks) {
     return maxId + 1; // Return new ID, incremented by 1
 }
 
+export function calculateNewNotificationId(notifications){
+    if (notifications.length === 0) return 1; // If no tasks, start IDs from 1
+
+    let maxId = notifications[0].id;
+    for (let i = 1; i < notifications.length; i++) {
+        if (notifications[i].id > maxId) maxId = notifications[i].id;
+    }
+
+    return maxId + 1; // Return new ID, incremented by 1
+}
+
 //It is used in Tasks.jsx file
 export function filterTasksByDateRange(tasks, filterStartDate, filterEndDate) {
     if(filterStartDate=="")return tasks

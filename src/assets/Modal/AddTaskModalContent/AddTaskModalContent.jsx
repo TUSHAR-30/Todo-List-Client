@@ -1,10 +1,12 @@
 import React, { useEffect, useState,useContext } from 'react'
 import TasksContext from '../../../Context/TasksContext';
 import { calculateNewTaskId } from '../../../utils';
+import useNotification from '../../../Hooks/useNotification';
 
 function AddTaskModalContent({taskDetails,setTaskDetails,setIsModalOpen}) {
     const { tasks, setTasks } = useContext(TasksContext);
     const [isSaveButtonEnabled,setIsSaveButtonEnabled]=useState(false);
+    const [notifications,closeNotification,addNotification]=useNotification()
   
      // Get today’s date in YYYY-MM-DD format
      const today = new Date().toISOString().split('T')[0];
@@ -23,6 +25,10 @@ function AddTaskModalContent({taskDetails,setTaskDetails,setIsModalOpen}) {
     function handleFormSubmit(e){
       e.preventDefault(); // Prevent default form submission
       const newTaskId=calculateNewTaskId(tasks)
+      addNotification({
+        type:"add",
+        message:"Task Added Successfully"
+      })
       setTasks([...tasks, { id: newTaskId, title: taskDetails.title, description: taskDetails.description , isCompleted: false , taskCreationDate :today ,dueDate:taskDetails.dueDate}]);
       setTaskDetails({ title: "", description: "", dueDate: "" });
       setIsModalOpen(false)

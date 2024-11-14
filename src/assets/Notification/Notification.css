@@ -1,0 +1,44 @@
+.notification-container {
+    position: absolute;
+    left: 50%;
+    z-index: 4;
+    transform: translateX(-50%);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.notification-item {
+    background-color: rgb(47, 228, 86);
+    padding: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    color: white;
+    position: relative;
+}
+.notification-item::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    background-color: var(--border-color);
+    transform-origin: left;
+    transform: scaleX(1);
+    animation: notificationTimeline 4s linear forwards;
+}
+@keyframes notificationTimeline {
+    to{
+        transform: scaleX(0);
+    }
+}
+
+.notification-closeicon {
+    color: black;
+    margin-left: 15px;
+    cursor: pointer;
+}

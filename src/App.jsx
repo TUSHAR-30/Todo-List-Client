@@ -9,18 +9,23 @@ import { TasksProvider } from './Context/TasksContext';
 import "./App.css"
 import SearchContainer from './SearchContainer/SearchContainer'
 import { SearchProvider } from './Context/SearchContext'
+import Notification from './assets/Notification/Notification'
+import { NotificationProvider } from './Context/NotificationContext'
 function App() {
 
   return (
     <TasksProvider>
       <SearchProvider>
-        <SearchContainer />
-        <Header />
-        <Greetings />
-        <ProductDiscoveryOptions />
-        <ProductDiscoveryResults />
-        <AddTask />
-        <Tasks />
+        <NotificationProvider>
+          <Notification />
+          <SearchContainer />
+          <Header />
+          <Greetings />
+          <ProductDiscoveryOptions />
+          <ProductDiscoveryResults />
+          <AddTask />
+          <Tasks />
+        </NotificationProvider>
       </SearchProvider>
     </TasksProvider>
   )

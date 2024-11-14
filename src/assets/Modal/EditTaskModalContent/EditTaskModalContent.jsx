@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import TasksContext from '../../../Context/TasksContext';
+import useNotification from '../../../Hooks/useNotification';
 
 
 function EditTaskModalContent({ openedTask, setOpenedTask, setIsModalOpen }) {
     const { tasks, setTasks } = useContext(TasksContext);
     const [isSaveButtonEnabled, setIsSaveButtonEnabled] = useState(true);
+    const [notifications,closeNotification,addNotification]=useNotification()
+
 
     // Get today’s date in YYYY-MM-DD format
     const today = new Date().toISOString().split('T')[0];
@@ -23,6 +26,10 @@ function EditTaskModalContent({ openedTask, setOpenedTask, setIsModalOpen }) {
 
     function handleFormSubmit(e) {
         e.preventDefault(); // Prevent default form submission
+        addNotification({
+            type:"edit",
+            message:"Task Updated Successfully"
+          })
 
         // Update the existing task instead of adding a new one
         setTasks(tasks.map((task) =>
