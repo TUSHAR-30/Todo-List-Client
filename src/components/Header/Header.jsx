@@ -20,11 +20,11 @@ function Header() {
         <div className='mode' onClick={handleMode}>
           {isLightMode ? <PiMoonStarsFill size={23} /> : <PiSunFill size={23} />}
         </div>
-        <div className='profile'>
+        {/* <div className='profile'>
           <FaUserCircle size={23} />
           <span className='login'>Login</span>
           <IoIosArrowDown />
-        </div>
+        </div> */}
         <Searchbar />
       </div>
     </header>

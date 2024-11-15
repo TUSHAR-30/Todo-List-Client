@@ -10,7 +10,6 @@
   border-bottom-left-radius: 50%;
   transform-origin: top right;
   transform: scale(0,0);
-  /* background-color: rgb(232, 230, 230); */
   background-color: var(--filterModal-backgroundColor);
   transition: transform 500ms;
   z-index: 1  ;

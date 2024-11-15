@@ -52,7 +52,7 @@ useEffect(() => {
         <div className='sortby-modal' ref={modalRef}>
           <h4>Sort by:</h4>
           <div className='sortby-list'>
-            <div className={`sortby-listitem`}>
+            <div className={`sortby-listitem ${selectedSort=="Sort by Alphabatically"?"checkedsort":""}`}>
               <input type="radio"
                 id='Sort by Alphabatically'
                 name="selectedSortOption"
@@ -62,7 +62,7 @@ useEffect(() => {
               />
               <label htmlFor="Sort by Alphabatically">Alphabatically</label>
             </div>
-            <div className={`sortby-listitem`}>
+            <div className={`sortby-listitem ${selectedSort=="Sort by Task Creation Date"?"checkedsort":""}`}>
               <input type="radio"
                 id='Sort by Task Creation Date'
                 name="selectedSortOption"

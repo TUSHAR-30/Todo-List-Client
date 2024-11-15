@@ -5,6 +5,13 @@
     justify-content: center;
 }
 
+.app-name{
+    background: linear-gradient(90deg, #ff6ec4, #7873f5); /* Gradient colors */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .header .header-actions{
     display: flex;
     gap: 0.6rem;
@@ -17,6 +24,7 @@
     padding: 5px;
     border: 1px solid ;
     border-radius: 50%;
+    background-color: var(--buttonBackground-color);
 }
 .mode{
     display: flex;

@@ -3,10 +3,10 @@
 }
 .filterby-container > button{
     border: 1px solid var(--border-color);
-    /* background-color: var(--buttonBackground-color); */
-    background-color: transparent;
+    background-color: var(--buttonBackground-color);
     color: var(--color);
     padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 .filterby-modal{
     position: absolute;
@@ -14,7 +14,7 @@
     z-index: 1;
     height: 180px;
     width: 320px;
-    border: 1px solid var(--border-color);
+    box-shadow: 0.5px 0.5px 3px var(--border-color);
     background-color: var(--filterModal-backgroundColor);
     padding: 10px;
     border-radius: 5px;
@@ -53,9 +53,8 @@
     display: flex;
     gap: 5px;
     cursor: pointer;
-    border: 1px solid var(--border-color);
     padding: 3px;
-    background-color: var(--filterModal-backgroundColor);
+    box-shadow: -0.2px 0 2px var(--border-color),1px 0 2px var(--border-color);
 }
 .filterby-listitem label{
     flex-grow: 1;
@@ -63,9 +62,6 @@
 .filterby-listitem input,label{
     cursor: pointer;
 }
-.checkedfilter{
-    background-color: var(--background-color);
-}
-.filterby-listitem:hover{
+.checkedfilter,.filterby-listitem:hover{
     background-color: var(--background-color);
 }

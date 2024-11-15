@@ -6,11 +6,11 @@
     height: 200px;
     overflow-y: auto;
     padding-right: 5px;
+    background:var(--tasks-backgroundColor);
 }
 .notasks-animation{
     height: 160px;
     z-index: -1;
-    /* background-color: red; */
 }
 .notasks-animation .taskadding-request{
     text-align: center;

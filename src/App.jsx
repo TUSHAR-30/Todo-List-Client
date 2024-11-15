@@ -18,11 +18,11 @@ function App() {
       <SearchProvider>
         <NotificationProvider>
           <Notification />
-          <SearchContainer />
-          <Header />
-          <Greetings />
-          <ProductDiscoveryOptions />
-          <ProductDiscoveryResults />
+            <SearchContainer />
+            <Header />
+            <Greetings />
+            <ProductDiscoveryOptions />
+            <ProductDiscoveryResults />
           <AddTask />
           <Tasks />
         </NotificationProvider>
