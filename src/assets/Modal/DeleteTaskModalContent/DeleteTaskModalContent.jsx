@@ -10,11 +10,8 @@ function DeleteTaskModalContent({ openedTask, setIsModalOpen , handleDeleteAnima
         if (userChoice){
             handleDeleteAnimation();
             setTimeout(() => {
-                addNotification({
-                    type:"delete",
-                    message:"Task Deleted Successfully"
-                })
                 setTasks((prevTasks) => prevTasks.filter((task) => task.id !== openedTask.id));
+                addNotification("delete","Task Deleted Successfully")
             }, 800)  //200ms more than animation in order for better visibility.
         }
 

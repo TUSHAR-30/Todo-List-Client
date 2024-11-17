@@ -41,29 +41,6 @@ export function convertDateFormat(dateString){
     return date.toLocaleDateString('en-GB', options);
 }
 
-//This function is used to calculate new id when we are adding a new task and this function generates newid by giving us highest id . Currently this function is used in AddTaskModalContext.js file.
-export function calculateNewTaskId(tasks) {
-    if (tasks.length === 0) return 1; // If no tasks, start IDs from 1
-
-    let maxId = tasks[0].id;
-    for (let i = 1; i < tasks.length; i++) {
-        if (tasks[i].id > maxId) maxId = tasks[i].id;
-    }
-
-    return maxId + 1; // Return new ID, incremented by 1
-}
-
-export function calculateNewNotificationId(notifications){
-    if (notifications.length === 0) return 1; // If no tasks, start IDs from 1
-
-    let maxId = notifications[0].id;
-    for (let i = 1; i < notifications.length; i++) {
-        if (notifications[i].id > maxId) maxId = notifications[i].id;
-    }
-
-    return maxId + 1; // Return new ID, incremented by 1
-}
-
 //It is used in Tasks.jsx file
 export function filterTasksByDateRange(tasks, filterStartDate, filterEndDate) {
     if(filterStartDate=="")return tasks

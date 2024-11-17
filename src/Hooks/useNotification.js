@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import NotificationContext from '../Context/NotificationContext';
-import { calculateNewNotificationId } from '../utils';
+import {Notification} from "../Classes/NotificationClass";
 
 function useNotification() {
     const { notifications, setNotifications } = useContext(NotificationContext)
@@ -9,11 +9,13 @@ function useNotification() {
         setNotifications((prevNotifications) => prevNotifications.filter((noti) => noti.id !== notificationId));
     }
 
-    function addNotification(notificationInformation) {
-        const newNotificationId = calculateNewNotificationId(notifications);
-        setNotifications((prevNotifications)=>[{ id: newNotificationId ,type:notificationInformation.type , message: notificationInformation.message },...prevNotifications])
+    function addNotification(type,message) {
+        const newNotification=new Notification(type,message);
+        newNotification.computeNotificationId(notifications);
+        setNotifications((prevNotifications)=>[newNotification,...prevNotifications])
+        
         setTimeout(() => {
-            setNotifications((prevNotifications) => prevNotifications.filter((noti) => noti.id !== newNotificationId));
+            setNotifications((prevNotifications) => prevNotifications.filter((noti) => noti.id !== newNotification.id));
         }, 4000);
     }
 

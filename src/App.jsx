@@ -4,13 +4,14 @@ import Header from './components/Header/Header'
 import ProductDiscoveryOptions from './components/ProductDiscoveryOptions/ProductDiscoveryOptions'
 import ProductDiscoveryResults from './components/ProductDiscoveryResults/ProductDiscoveryResults'
 import Tasks from './components/Tasks/Tasks'
+import SearchContainer from './SearchContainer/SearchContainer'
+import Notification from './assets/Notification/Notification'
 
 import { TasksProvider } from './Context/TasksContext';
-import "./App.css"
-import SearchContainer from './SearchContainer/SearchContainer'
 import { SearchProvider } from './Context/SearchContext'
-import Notification from './assets/Notification/Notification'
 import { NotificationProvider } from './Context/NotificationContext'
+import "./App.css"
+
 function App() {
 
   return (
@@ -18,11 +19,11 @@ function App() {
       <SearchProvider>
         <NotificationProvider>
           <Notification />
-            <SearchContainer />
-            <Header />
-            <Greetings />
-            <ProductDiscoveryOptions />
-            <ProductDiscoveryResults />
+          <SearchContainer />
+          <Header />
+          <Greetings />
+          <ProductDiscoveryOptions />
+          <ProductDiscoveryResults />
           <AddTask />
           <Tasks />
         </NotificationProvider>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState,useContext } from 'react'
 import TasksContext from '../../../Context/TasksContext';
-import { calculateNewTaskId } from '../../../utils';
 import useNotification from '../../../Hooks/useNotification';
+import {Task} from "../../../Classes/TaskClass"
 
 function AddTaskModalContent({taskDetails,setTaskDetails,setIsModalOpen}) {
     const { tasks, setTasks } = useContext(TasksContext);
@@ -24,12 +24,12 @@ function AddTaskModalContent({taskDetails,setTaskDetails,setIsModalOpen}) {
     }
     function handleFormSubmit(e){
       e.preventDefault(); // Prevent default form submission
-      const newTaskId=calculateNewTaskId(tasks)
-      addNotification({
-        type:"add",
-        message:"Task Added Successfully"
-      })
-      setTasks([ { id: newTaskId, title: taskDetails.title, description: taskDetails.description , isCompleted: false , taskCreationDate :today ,dueDate:taskDetails.dueDate} , ...tasks]);
+
+      const newTask=new Task(taskDetails.title,taskDetails.description,false,today,taskDetails.dueDate)
+      newTask.computeTaskId(tasks)
+      setTasks([newTask,...tasks])
+
+      addNotification("add","Task Added Successfully")
       setTaskDetails({ title: "", description: "", dueDate: "" });
       setIsModalOpen(false)
     }
