@@ -1,12 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useRef } from 'react'
 import TasksContext from '../../../Context/TasksContext';
 import useNotification from '../../../Hooks/useNotification';
+import useInputFocus from '../../../Hooks/useInputFocus';
 
 function EditTaskModalContent({ openedTask, setOpenedTask, setIsModalOpen }) {
     const { tasks, setTasks } = useContext(TasksContext);
     const [isSaveButtonEnabled, setIsSaveButtonEnabled] = useState(true);
     const [notifications, closeNotification, addNotification] = useNotification()
-
+    const {titleInputRef,descriptionInputRef,dueDateInputRef,handleKeyDown}= useInputFocus()
 
     // Get today’s date in YYYY-MM-DD format
     const today = new Date().toISOString().split('T')[0];
@@ -31,7 +32,7 @@ function EditTaskModalContent({ openedTask, setOpenedTask, setIsModalOpen }) {
             task.id === openedTask.id ? task.editTask(openedTask.title, openedTask.description, openedTask.dueDate) : task
         ));
 
-        addNotification( "edit","Task Updated Successfully")
+        addNotification("edit", "Task Updated Successfully")
         setOpenedTask({ title: "", description: "", dueDate: "" });
         setIsModalOpen(false)
     }
@@ -43,39 +44,49 @@ function EditTaskModalContent({ openedTask, setOpenedTask, setIsModalOpen }) {
         if (openedTask.title.trim() && openedTask.dueDate >= today) setIsSaveButtonEnabled(true)
         else setIsSaveButtonEnabled(false)
     }
+  
     useEffect(() => {
         validateForm();
     }, [openedTask])
+
     return (
         <>
             <h2 style={{ textAlign: 'center' }}>Edit Your Task</h2>
             <form className='taskdetailsform' onSubmit={handleFormSubmit}>
                 <div className='taskdetails'>
-                    <label htmlFor="">Enter Task Title</label>
+                    <div>Enter Task Title</div>
                     <input
+                        ref={titleInputRef}
                         type="text"
                         name="title"
                         value={openedTask.title}
-                        onChange={handleFormDetails} />
+                        onChange={handleFormDetails}
+                        onKeyDown={handleKeyDown}
+                    />
                 </div>
                 <div className='taskdetails'>
-                    <label htmlFor="">Enter Task Description(Optional)</label>
+                    <div>Enter Task Description(Optional)</div>
                     <textarea
+                        ref={descriptionInputRef}
                         rows={10}
                         style={{ resize: 'none' }}
                         name="description"
                         value={openedTask.description}
-                        onChange={handleFormDetails} />
+                        onChange={handleFormDetails}
+                        onKeyDown={handleKeyDown}
+                    />
                 </div>
                 <div className='taskdetails'>
-                    <label htmlFor="">Select Due Date</label>
+                    <div>Select Due Date</div>
                     <input
+                        ref={dueDateInputRef}
                         type="date"
                         name="dueDate"
                         min={today}
                         max="9999-12-31"
                         value={openedTask.dueDate}
-                        onChange={handleFormDetails} />
+                        onChange={handleFormDetails} 
+                    />
                 </div>
                 <div className='actionbuttons'>
                     <button type="button" onClick={handleCancelFormSubmit}>Cancel</button>
